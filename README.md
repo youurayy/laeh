@@ -65,8 +65,10 @@ LAEH then presents the stacktrace in a minified format, with optional hiding of 
 
 ## Usage
 
+	npm install laeh
+
 ```js
-var laeh = require('../lib/laeh.js').leanStacks(true, '\t');
+var laeh = require('laeh').leanStacks(true, '\t');
 var _e = laeh._e;
 var _x = laeh._x;
 ```
