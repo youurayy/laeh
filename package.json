@@ -11,7 +11,7 @@
 	},
 	"main": "./lib/laeh.js",
 	"directories": {
-		"lib": "lib"
+		"lib": "./lib"
 	},
 	"engines": {
 		"node": ">= 0.4.0"

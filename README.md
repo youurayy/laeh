@@ -8,7 +8,7 @@
 
 function someContext(arg, arg, callback) {
 
-	callAsyncFunction(arg, arg, function(err, data) {
+	someAsyncFunction(arg, arg, function(err, data) {
 		// err is not checked but should be (a common case)
 		throw new Error('fail'); // uncaught - will exit Node.js
 	}
@@ -23,7 +23,7 @@ function someContext(arg, arg, callback) {
 
 function someContext(arg, arg, callback) {
 
-	callAsyncFunction(arg, arg, function(err, data) {
+	someAsyncFunction(arg, arg, function(err, data) {
 		if(err)
 			callback(err);
 		else {
@@ -46,7 +46,7 @@ function someContext(arg, arg, callback) {
 
 function someContext(arg, arg, callback) {
 
-	callAsyncFunction(arg, arg, _x(function(err, data) {
+	someAsyncFunction(arg, arg, _x(function(err, data) {
 		throw new Error('fail');
 	},
 	callback, // in case of error return control to callback
@@ -78,3 +78,6 @@ The `leanStacks(hiding, prettyMeta)` call is optional, the `hiding` will hide st
 The `_e(err, meta)` function is just a convenient error checking, wrapping and throwing. E.g. `_e('something')` will throw `new Error('something')` and `_e(null)` will not do anything. The `meta` parameter is an optional accompanying information for the error to be thrown, which is then displayed when you let LAEH to display your errors using the `leanStacks()` call.
 
 In the `_x(func, cb, chk)`, the func is you callback to be wrapped. If it follows the node convention of `func(err, args)`, you can pass `chk` as true, which will automatically check for the `err` to be null, and call the eventual callback if it isn't null. The eventual callback is passed as the cb argument, or if omitted, it is tried to be derived from the last argument parseed to the function you are wrapping, e.g. if the signature is `func(err, args, cb)`, the cb is taken.
+
+
+More will be writen here in due time.
