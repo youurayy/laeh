@@ -86,15 +86,20 @@ true));
 This will print: `unexpected thing ./test.js(7) << ./test.js(5)`. The async boundary is marked with `<<`.
 
 If we add metadata:
+
 ```js
 	_e('unexpected thing', { msg: 'my metadata', xyz: 123 });
 ```
+
 The output when configured with `.leanStacks(true, '\t')` will be:
+
     unexpected thing {
         "msg": "my metadata",
         "xyz": 123
     } ./test.js(7) << ./test.js(5)
+
 And when configured with `.leanStacks(true)`:
+
     unexpected thing {"msg":"my metadata","xyz":123} ./test.js(7) << ./test.js(5)
 
 
