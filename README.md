@@ -83,7 +83,15 @@ true));
 
 ```
 
-This will print `unexpected thing ./test.js(7) << ./test.js(5)`.
+This will print: `unexpected thing ./test.js(7) << ./test.js(5)`. The async boundary is marked with `<<`. If we add metadata:
+```js
+	_e('unexpected thing', { msg: 'my metadata', xyz: 123 });
+```
+The output will be:
+	unexpected thing {
+	        "msg": "my metadata",
+	        "xyz": 123
+	} ./test.js(7) << ./test.js(5)
 
 The `leanStacks(hiding, prettyMeta)` call is optional, the `hiding` will hide stack frames from Node's core .js files and from `laeh.js` itself. The `prettyMeta` is the third parameter for the `JSON.stringify` function, which is used to serialize your metadata objects (see below), and leaving it empty will serialize your metadata objects in-line.
 
