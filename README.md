@@ -60,7 +60,7 @@ function someContext(arg, arg, callback) {
 
 LAEH stores the stacktrace of the thread that initiated the asynchronous operation which in turn called the callback. This stacktrace is then appended to the primary stacktrace of the error which happened in the callback, or the error which was passed to the callback by the asynchronous function.
 
-LAEH then presents the stacktrace in a minified format, with optional hiding of frames of the laeh.js itself, of the node.js core library, shortens the often repeating string `/node_modules/` into `/$/`, and removes the current directory path prefix from the file names in the stacktrace.
+LAEH then presents the stacktrace in a minified format, with optional hiding of frames of the `laeh.js` itself, of the node.js core library files, shortens the often repeating string `/node_modules/` into `/$/`, and removes the current directory path prefix from the file names in the stacktrace.
 
 
 ## Usage
