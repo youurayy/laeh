@@ -8,8 +8,7 @@ var _x = laeh._x;
 
 var cb = function(err, dt) {
 	if(err)
-		console.log('' + err);
-	//	console.log.apply(null, err.toArray());
+		console.log(err.stack);
 	else
 		console.log(dt);
 };
