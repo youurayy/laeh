@@ -102,6 +102,13 @@ And when configured with `.leanStacks(true)`:
 
     unexpected thing {"msg":"my metadata","xyz":123} ./test.js(7) << ./test.js(5)
 
+For the comparison, this would be printed without using '.leanStacks':
+
+    Error: unexpected thing
+        at /Users/ypocat/Repository/ypocat/www/node_modules/laeh/lib/laeh.js:31:8
+        at /Users/ypocat/Repository/ypocat/www/test.js:7:5
+        at /Users/ypocat/Repository/ypocat/www/node_modules/laeh/lib/laeh.js:56:9
+
 
 The `leanStacks(hiding, prettyMeta)` call is optional, the `hiding` will hide stack frames from Node's core .js files and from `laeh.js` itself. The `prettyMeta` is the third parameter for the `JSON.stringify` function, which is used to serialize your metadata objects (see below), and leaving it empty will serialize your metadata objects in-line.
 
