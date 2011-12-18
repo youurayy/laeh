@@ -71,6 +71,17 @@ LAEH then presents the stacktrace in a minified format, with optional hiding of 
 var laeh = require('laeh').leanStacks(true, '\t');
 var _e = laeh._e;
 var _x = laeh._x;
+
+fs.readdir(__dirname, _x(function(err, files) {
+	// do your things here..
+	_e('unexpected thing'); // throw your own errors, etc.
+	_e(new Error('here')); // this gives you more precise line number
+},
+function(err) { // this is our top-level callback
+	console.log(err.stack); // don't forget to use .stack when printing errors
+},
+true));
+
 ```
 
 The `leanStacks(hiding, prettyMeta)` call is optional, the `hiding` will hide stack frames from Node's core .js files and from `laeh.js` itself. The `prettyMeta` is the third parameter for the `JSON.stringify` function, which is used to serialize your metadata objects (see below), and leaving it empty will serialize your metadata objects in-line.
