@@ -102,7 +102,7 @@ And when configured with `.leanStacks(true)`:
 
     unexpected thing {"msg":"my metadata","xyz":123} ./test.js(7) << ./test.js(5)
 
-For the comparison, this would be printed without using '.leanStacks':
+For the comparison, this would be printed without using `.leanStacks`:
 
     Error: unexpected thing
         at /Users/ypocat/Repository/ypocat/www/node_modules/laeh/lib/laeh.js:31:8
