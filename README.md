@@ -1,6 +1,6 @@
 # Lightweight Asynchronous Error Handling for Node.js (LAEH)
 
-## The Evolution
+## Evolution
 
 ### 1. Unprotected callback code
 
