@@ -72,9 +72,9 @@ var laeh = require('laeh').leanStacks(true, '\t');
 var _e = laeh._e;
 var _x = laeh._x;
 
-fs.readdir(__dirname, _x(function(err, files) {
+fs.readdir(__dirname, _x(function(err, files) { // LINE #5
 	// do your things here..
-	_e('unexpected thing'); // throw your own errors, etc.
+	_e('unexpected thing'); // throw your own errors, etc. LINE #7
 },
 function(err) { // this is our top-level callback
 	console.log(err.stack); // don't forget to use .stack when printing errors
