@@ -116,3 +116,33 @@ The `_e(err, meta)` function is just a convenient error checking, wrapping and t
 
 In the `_x(func, cb, chk)`, the func is you callback to be wrapped. If it follows the node convention of `func(err, args)`, you can pass `chk` as true, which will automatically check for the `err` to be null, and call the eventual callback if it isn't null. The eventual callback is passed as the `cb` argument, or if omitted, it is tried to be derived from the last argument parseed to the function you are wrapping, e.g. if the signature is `func(err, args, cb)`, the `cb` is taken from arguments.
 
+## Additional functions for Express.js
+
+`_xj()` protects the whole handler for uncaught exceptions, and in case of one, uses the `res` parameter passed to your callback by the `app.get()` asynchronous handler to serialize the uncaught error as a JSON response.
+
+`_exj()` protects the top asynchronous calls in the handler, provided that the asynchronous call calls your callback with `err` as the first argument (a Node convention). However you have to pass it the `res` object explicitly.
+
+```js
+app.get('/url', _xj(function(req, res) {
+
+	some_async_func(arg1, arg2, _exj(function(err, jres) {
+
+		res.json(jres);
+
+	}, res));
+
+}));
+```
+
+Both these functions return status 500 on error by default. Please check `leah.js` for more info on their parameters.
+
+## Additional functions for Mongodb (node-mongodb-native)
+
+When you use findAndModify with a query which finds no object, mongo reports this as object not found, which you may find misleading as with all other functions, the result is simply set to null. Additionaly, the message "object not found" is too generic, so this little function will simply isolate this special case and allows you attach your special message to it. Make sure not to use `_xe` but just `_x` to wrap your async handler, otherwise `_xe` will catch this error early and your `_ea` won't see it.
+
+```js
+		col.findAndModify(query, sort, update, { new: true }, _x(function(err, result) {
+			_ea(err, 'Concurrent record allocation; sending the client over');
+			...
+		}, cb);
+```
