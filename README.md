@@ -141,8 +141,8 @@ Both these functions return status 500 on error by default. Please check `leah.j
 When you use findAndModify with a query which finds no object, mongo reports this as object not found, which you may find misleading as with all other functions, the result is simply set to null. Additionaly, the message "object not found" is too generic, so this little function will simply isolate this special case and allows you attach your special message to it. Make sure not to use `_xe` but just `_x` to wrap your async handler, otherwise `_xe` will catch this error early and your `_ea` won't see it.
 
 ```js
-		col.findAndModify(query, sort, update, { new: true }, _x(function(err, result) {
-			_ea(err, 'Concurrent record allocation; sending the client over');
-			...
-		}, cb);
+col.findAndModify(query, sort, update, { new: true }, _x(function(err, result) {
+	_ea(err, 'Concurrent record allocation; sending the client over');
+	...
+}, cb);
 ```
