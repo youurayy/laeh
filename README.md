@@ -83,7 +83,11 @@ true));
 
 ```
 
-This will print: `unexpected thing ./test.js(7) << ./test.js(5)`. The async boundary is marked with `<<`.
+This will print:
+	
+	unexpected thing ./test.js(7) << ./test.js(5)
+	
+The async boundary is marked with `<<`.
 
 If we add metadata:
 
@@ -124,13 +128,9 @@ In the `_x(func, cb, chk)`, the func is you callback to be wrapped. If it follow
 
 ```js
 app.get('/url', _xj(function(req, res) {
-
 	some_async_func(arg1, arg2, _exj(function(err, jres) {
-
 		res.json(jres);
-
 	}, res));
-
 }));
 ```
 
