@@ -3,7 +3,7 @@
 	"name": "laeh",
 	"description": "Lightweight Asynchronous Error Handling",
 	"keywords": [ "error", "handling", "asynchronous" ],
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"homepage": "http://github.com/ypocat/laeh",
 	"repository": {
 		"type": "git",

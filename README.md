@@ -1,5 +1,7 @@
 # Lightweight Asynchronous Error Handling for Node.js (LAEH)
 
+Notice: LAEH is now deprecated in favor of the even leaner LAEH2. Please have a look: https://github.com/ypocat/laeh2
+
 ## Evolution
 
 ### 1. Unprotected callback code
