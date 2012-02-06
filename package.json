@@ -3,7 +3,7 @@
 	"name": "laeh",
 	"description": "Lightweight Asynchronous Error Handling",
 	"keywords": [ "error", "handling", "asynchronous" ],
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"homepage": "http://github.com/ypocat/laeh",
 	"repository": {
 		"type": "git",
@@ -19,5 +19,8 @@
 	"dependencies": {
 	},
 	"devDependencies": {
-	}
+	},
+	"licenses": [
+		{  "type" : "MIT", "url" : "https://raw.github.com/ypocat/laeh/master/LICENSE" }
+	]
 }
